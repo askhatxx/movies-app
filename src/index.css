@@ -1,0 +1,49 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card-box {
+  height: 100%;
+}
+
+.card-box__poster {
+  cursor: pointer;
+}
+
+.tag-box {
+  display: inline-block;
+  color: #fff;
+  background-color: #6c757d;
+  border-radius: .2rem;
+  padding: 0 .2rem .1rem;
+  font-size: .9rem;
+  text-transform: lowercase;
+  vertical-align: middle;
+}
+
+.ratio-box {
+  position: relative;
+}
+
+.ratio-box::before {
+  display: block;
+  padding-top: 140%;
+  content: '';
+}
+
+.ratio-box * {
+  position: absolute;
+}
+
+.ratio-box .card-box__spinner {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3rem;
+  height: 3rem;
+}
+
+.ratio-box .card-box__spinner .spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
