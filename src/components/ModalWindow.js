@@ -16,9 +16,13 @@ const ModalWindow = ({showModal, modalInfo, handleCloseModal}) => {
             </Col>
             <Col xs={12} sm={8} md={8}>
               <div dangerouslySetInnerHTML={{__html: modalInfo.summary}}/>
-              <div className="mt-2">
-                <strong>Rating:</strong> {modalInfo.rating?.average}
-              </div>
+              {
+                modalInfo.rating?.average && (
+                  <div className="mt-2">
+                    <strong>Rating:</strong> {modalInfo.rating?.average}
+                  </div>
+                )
+              }
               <div className="mt-2">
                 <strong>Studio:</strong> {modalInfo.network?.name}, {modalInfo.network?.country?.name}
               </div>

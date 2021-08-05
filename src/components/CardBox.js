@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Card, Button, Spinner } from 'react-bootstrap';
 
 const CardBox = ({cardInfo, handleShowModal}) => {
   const [loadingImage, setLoadingImage] = useState(true);
@@ -11,9 +11,7 @@ const CardBox = ({cardInfo, handleShowModal}) => {
         {
           loadingImage &&
             <div className="card-box__spinner">
-              <div className="spinner-border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
+              <Spinner animation="border" variant="dark" />
             </div>
         }
         <Card.Img
@@ -30,7 +28,9 @@ const CardBox = ({cardInfo, handleShowModal}) => {
           {cardInfo.name}
         </Card.Title>
         <div className="flex-grow-1 mb-3">
-          Rating: {cardInfo.rating?.average}
+          {
+            cardInfo.rating?.average && `Rating: ${cardInfo.rating.average}`
+          }
           <div className="mt-2">
             {
               cardInfo.genres.map(item => <span key={item} className="tag-box mb-2 me-2">{item}</span>)
